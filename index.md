@@ -5,7 +5,7 @@ title: Home
 
 ## Welcome to the Guide!
 
-This guide is designed to help your team get started with local AI development. We will walk through the process of setting up and using powerful open-source large language models on your own computer.
+This guide is designed to help you get started with local AI development.
 
 ## What You'll Learn
 
@@ -15,4 +15,4 @@ This guide is designed to help your team get started with local AI development. 
 - **Part 4: RAG with Langchain:** Building a Retrieval-Augmented Generation pipeline.
 - **Part 5: Advanced Concepts:** Exploring more advanced techniques like agentic workflows.
 
-Use the navigation bar at the top to move between sections. Let's get started!
+Use the navigation bar at the top to move between sections.

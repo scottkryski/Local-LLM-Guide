@@ -5,7 +5,7 @@ title: "Part 1: Getting Started with Ollama"
 
 ## What is Ollama?
 
-Ollama is a powerful tool that allows you to run open-source large language models, such as Llama 3, Gemma, and Mistral, directly on your own computer. This provides several benefits, including:
+Ollama is a powerful tool that allows you to run open-source large language models, such as Llama 3, Gemma, and others, directly on your own computer. This provides several benefits, including:
 
 - **Privacy:** Your data remains on your local machine, ensuring privacy and security.
 - **Cost-Effectiveness:** You can experiment with and use powerful AI models without incurring high API costs.

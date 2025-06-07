@@ -8,18 +8,36 @@
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     
-    <!-- This line loads the base theme stylesheet - REMOVED -->
-    
-    <!-- Our custom stylesheet to fix layout issues and improve appearance -->
     <style>
+        /* --- START THEME VARIABLES --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #24292e;
+            --link-color: #0366d6;
+            --border-color: #eaecef;
+            --code-bg: rgba(27,31,35,.05);
+            --pre-bg: #f6f8fa;
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --link-color: #58a6ff;
+            --border-color: #30363d;
+            --code-bg: rgba(240,246,252,0.15);
+            --pre-bg: #161b22;
+        }
+        /* --- END THEME VARIABLES --- */
+
         /* Basic Font and Background Settings */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6; 
-            color: #24292e;
-            background-color: #fff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Main container to center content and provide spacing */
@@ -32,12 +50,12 @@
         /* Header Styling */
         .site-header {
             display: flex;
-            justify-content: space-between; /* Pushes title and nav apart */
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eaecef; /* Added a bottom border */
-            padding-bottom: 15px; /* Added padding */
-            margin-bottom: 30px; /* Increased margin to push content down */
-            flex-wrap: wrap; /* Allows nav to wrap on smaller screens */
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
         .site-title {
             font-size: 1.5em;
@@ -46,6 +64,10 @@
         }
 
         /* Navigation Bar Styling */
+        .site-nav {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center;
+        }
         .site-nav ul { 
             list-style: none; 
             padding: 0; 
@@ -57,12 +79,27 @@
         }
         .site-nav a { 
             text-decoration: none; 
-            color: #0366d6; 
+            color: var(--link-color); 
             font-weight: 600;
         }
         .site-nav a:hover {
             text-decoration: underline;
         }
+
+        /* --- START THEME TOGGLE BUTTON STYLE --- */
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 20px; /* Space between nav and button */
+        }
+        #theme-toggle:hover {
+            background-color: var(--code-bg);
+        }
+        /* --- END THEME TOGGLE BUTTON STYLE --- */
 
         /* Main Content Area */
         main {
@@ -76,29 +113,52 @@
             font-weight: 600;
         }
         h1 { font-size: 2em; }
-        h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+        h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: .3em;}
 
         /* Code Blocks */
         code { 
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            background: rgba(27,31,35,.05);
+            background: var(--code-bg);
             padding: .2em .4em; 
             margin: 0;
             font-size: 85%;
             border-radius: 3px; 
         }
         pre { 
-            background: #f6f8fa; 
+            background: var(--pre-bg); 
             padding: 16px; 
             border-radius: 6px; 
             overflow: auto;
             font-size: 85%;
+            border: 1px solid var(--border-color);
         }
         pre code { 
             background: none; 
-            padding: 0; 
+            padding: 0;
+            border: none;
         }
     </style>
+
+    <!-- --- START THEME-HANDLING SCRIPT --- -->
+    <!-- This script runs immediately to prevent a "flash" of the wrong theme -->
+    <script>
+        (function() {
+            // Function to set the theme
+            const setTheme = (theme) => {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            };
+
+            // Get the stored theme, or fallback to system preference
+            const storedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
+            
+            setTheme(initialTheme);
+        })();
+    </script>
+    <!-- --- END THEME-HANDLING SCRIPT --- -->
+
 </head>
 <body>
     <div class="wrapper">
@@ -106,19 +166,37 @@
             <h1 class="site-title">{{ site.title | default: "Local-LLM-Guide" }}</h1>
             <nav class="site-nav">
                 <ul>
-                    <!-- Using site.baseurl makes links work correctly on GitHub Pages -->
                     <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/1-getting-started-with-ollama.html">Ollama</a></li>
-                    <li><a href="{{ site.baseurl }}/2-ollama-with-python.html">Python</a></li>
-                    <li><a href="{{ site.baseurl }}/3-vector-stores-with-qdrant.html">Qdrant</a></li>
-                    <li><a href="{{ site.baseurl }}/4-rag-with-langchain.html">Langchain</a></li>
-                    <li><a href="{{ site.baseurl }}/5-advanced-concepts.html">Advanced</a></li>
+                    <li><a href="{{ site.baseurl }}/1-getting-started-with-ollama.html">1. Ollama</a></li>
+                    <li><a href="{{ site.baseurl }}/2-ollama-with-python.html">2. Python</a></li>
+                    <li><a href="{{ site.baseurl }}/3-vector-stores-with-qdrant.html">3. Qdrant</a></li>
+                    <li><a href="{{ site.baseurl }}/4-rag-with-langchain.html">4. Langchain</a></li>
+                    <li><a href="{{ site.baseurl }}/5-advanced-concepts.html">5. Advanced</a></li>
                 </ul>
+                <!-- The theme toggle button -->
+                <button id="theme-toggle">🌓</button>
             </nav>
         </header>
         <main>
             {{ content }}
         </main>
     </div>
+
+    <!-- --- START BUTTON EVENT LISTENER SCRIPT --- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = localStorage.getItem('theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    </script>
+    <!-- --- END BUTTON EVENT LISTENER SCRIPT --- -->
+
 </body>
 </html>
