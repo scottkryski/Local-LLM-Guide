@@ -3,6 +3,17 @@ layout: default
 title: "Part 2: Ollama with Python"
 ---
 
+## Table of Contents
+
+- [Interacting with Ollama Programmatically](#interacting-with-ollama-programmatically)
+- [Setting up the Python Environment](#setting-up-the-python-environment)
+- [Basic Interaction - Chat vs Generate](#basic-interaction---chat-vs-generate)
+- [Streaming Responses](#streaming-responses)
+- [Configuration Options](#configuration-options)
+- [Structured Output with Pydantic](#structured-output-with-pydantic)
+- [Tool Calling](#tool-calling)
+- [Conclusion](#conclusion)
+
 ## Interacting with Ollama Programmatically
 
 The `ollama` Python library provides a simple way to interact with Ollama programmatically.

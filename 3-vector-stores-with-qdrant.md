@@ -3,6 +3,18 @@ layout: default
 title: "Part 3: Vector Stores with Qdrant"
 ---
 
+## Table of Contents
+
+- [Introduction to Qdrant](#introduction-to-qdrant)
+- [Setting up Qdrant](#setting-up-qdrant)
+- [Option 1: Running Qdrant as a Server with Docker](#option-1-running-qdrant-as-a-server-with-docker)
+- [Option 2: Running Qdrant Locally](#option-2-running-qdrant-locally)
+- [Using Qdrant with Python](#using-qdrant-with-python)
+- [Creating a Collection](#creating-a-collection)
+- [Example using IBM's Granite Embedding Models](#example-using-ibms-granite-embedding-models)
+- [Searching the Collection (Retrieval)](#searching-the-collection-retrieval)
+- [Conclusion](#conclusion)
+
 ### Introduction to Qdrant
 
 Qdrant is a high-performance, open-source vector database that is well-suited for building RAG applications. It offers both a server-based version for production use and a lightweight local mode for development and smaller projects.

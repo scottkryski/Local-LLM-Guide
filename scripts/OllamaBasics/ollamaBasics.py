@@ -59,4 +59,4 @@ response = ollama.generate(
     }
 )
 print("\nOptions response, temperature=2:")
-print(response['response']
+print(response['response'])  # Example output will vary
