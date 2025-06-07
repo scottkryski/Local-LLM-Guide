@@ -25,7 +25,7 @@ print("")
 vector_size = 384  # Matching the granite-30m-english model
 collection_name = "example_collection"
 
-# Check if collection aleady exists, delete for this example
+# Check if collection already exists, delete for this example
 if client.collection_exists(collection_name):
     print(f"---Deleting collection: {collection_name}---")
     client.delete_collection(collection_name)

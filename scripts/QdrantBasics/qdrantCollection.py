@@ -26,5 +26,3 @@ client.create_collection(
 # print collection exists
 print(f"Collection exists: {collection_name}")
 print(client.collection_exists(collection_name))
-
-#

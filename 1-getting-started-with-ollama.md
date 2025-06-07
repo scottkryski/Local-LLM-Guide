@@ -34,7 +34,7 @@ Ollama is a powerful tool that allows you to run open-source large language mode
 
 #### Example
 
-![alt text](images/image.png)
+![Screenshot of Ollama running](images/image.png)
 
 ### Conclusion
 
@@ -43,4 +43,4 @@ That's it! Once you have your Ollama server running and a model downloaded, you'
 ### Other Details
 
 Additionally you can add `--verbose` to the end of the run command to see details on how well the model performs:
-![alt text](images/image2.png)
+![Screenshot with verbose output](images/image2.png)

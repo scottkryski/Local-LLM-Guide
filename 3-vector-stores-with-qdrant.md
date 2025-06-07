@@ -94,7 +94,7 @@ client.recreate_collection(
 print(f"Collection 'my_enterprise_collection' created successfully with vector size {vector_size}.")
 ```
 
-For our usecase, I'm leaning towards using the IBM Granite Embedding Models. They are commerically friendly under an Apache 2.0 License, and are optimized for retrieval.
+For our use case, I'm leaning towards using the IBM Granite Embedding Models. They are commercially friendly under an Apache 2.0 License, and are optimized for retrieval.
 
 While some Granite models may be available through Ollama, the most reliable method is to pull them directly from their source on Hugging Face.
 
@@ -117,7 +117,7 @@ IBM provides 4 embedding models:
 
 From: https://www.ibm.com/granite/docs/models/embedding/
 
-This code will load the IBM Granite Embedding model from Hugging Face, Initalize the Qdrant client, create a collection with the correct vector size (384), loop through a list of example documents, creating an embedding for each one, and then store the resulting vectors and document content in the collection.
+This code will load the IBM Granite Embedding model from Hugging Face, Initialize the Qdrant client, create a collection with the correct vector size (384), loop through a list of example documents, creating an embedding for each one, and then store the resulting vectors and document content in the collection.
 
 #### Creating and Populating the Collection
 
