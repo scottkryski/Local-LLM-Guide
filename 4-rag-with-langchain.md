@@ -3,6 +3,14 @@ layout: default
 title: "Part 4: RAG with Langchain"
 ---
 
+## Table of Contents
+
+- [What is Langchain?](#what-is-langchain)
+- [Setting up the Langchain Environment](#setting-up-the-langchain-environment)
+- [Building a RAG Pipeline](#building-a-rag-pipeline)
+- [Full RAG Script](#full-rag-script)
+- [How it Works](#how-it-works)
+
 ### What is Langchain?
 
 Langchain is a framework designed to simplify the development of applications powered by large language models. It provides the "glue" that connects our different components—the LLM, the vector database, and our application logic—into a coherent pipeline.
