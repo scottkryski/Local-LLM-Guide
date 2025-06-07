@@ -8,8 +8,7 @@
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     
-    <!-- This line loads the base theme stylesheet -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <!-- This line loads the base theme stylesheet - REMOVED -->
     
     <!-- Our custom stylesheet to fix layout issues and improve appearance -->
     <style>
@@ -35,7 +34,9 @@
             display: flex;
             justify-content: space-between; /* Pushes title and nav apart */
             align-items: center;
-            margin-bottom: 20px;
+            border-bottom: 1px solid #eaecef; /* Added a bottom border */
+            padding-bottom: 15px; /* Added padding */
+            margin-bottom: 30px; /* Increased margin to push content down */
             flex-wrap: wrap; /* Allows nav to wrap on smaller screens */
         }
         .site-title {
@@ -102,16 +103,16 @@
 <body>
     <div class="wrapper">
         <header class="site-header">
-            <h1 class="site-title">{{ site.title }}</h1>
+            <h1 class="site-title">{{ site.title | default: "Local-LLM-Guide" }}</h1>
             <nav class="site-nav">
                 <ul>
                     <!-- Using site.baseurl makes links work correctly on GitHub Pages -->
                     <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/1-getting-started-with-ollama.html">1. Ollama</a></li>
-                    <li><a href="{{ site.baseurl }}/2-ollama-with-python.html">2. Python</a></li>
-                    <li><a href="{{ site.baseurl }}/3-vector-stores-with-qdrant.html">3. Qdrant</a></li>
-                    <li><a href="{{ site.baseurl }}/4-rag-with-langchain.html">4. Langchain</a></li>
-                    <li><a href="{{ site.baseurl }}/5-advanced-concepts.html">5. Advanced</a></li>
+                    <li><a href="{{ site.baseurl }}/1-getting-started-with-ollama.html">Ollama</a></li>
+                    <li><a href="{{ site.baseurl }}/2-ollama-with-python.html">Python</a></li>
+                    <li><a href="{{ site.baseurl }}/3-vector-stores-with-qdrant.html">Qdrant</a></li>
+                    <li><a href="{{ site.baseurl }}/4-rag-with-langchain.html">Langchain</a></li>
+                    <li><a href="{{ site.baseurl }}/5-advanced-concepts.html">Advanced</a></li>
                 </ul>
             </nav>
         </header>
