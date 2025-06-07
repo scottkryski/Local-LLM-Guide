@@ -127,7 +127,7 @@ The ollama library will automatically convert the class into a JSON schema for t
 
 Additionally you can ask it to respond in JSON to help the model understand the request.
 
-Setting the `temperature` to 0 also aids in getting a more determinsitic output.
+Setting the `temperature` to 0 also aids in getting a more deterministic output.
 
 #### Example from Ollama's blog:
 
